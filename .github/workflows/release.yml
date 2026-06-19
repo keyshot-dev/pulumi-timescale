@@ -27,11 +27,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: true
+          persist-credentials: false
       - name: Checkout Scripts Repo
         uses: actions/checkout@v3
         with:
           path: ci-scripts
           repository: pulumi/scripts
+          persist-credentials: false
       - name: Unshallow clone for tags
         run: git fetch --prune --unshallow --tags
       - name: Install Go
@@ -120,11 +122,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: true
+          persist-credentials: false
       - name: Checkout Scripts Repo
         uses: actions/checkout@v3
         with:
           path: ci-scripts
           repository: pulumi/scripts
+          persist-credentials: false
       - name: Unshallow clone for tags
         run: git fetch --prune --unshallow --tags
       - name: Install Go
@@ -193,6 +197,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: true
+          persist-credentials: false
       - name: Unshallow clone for tags
         run: git fetch --prune --unshallow --tags
       - name: Install Go
@@ -230,6 +235,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: ${{ github.repository }}
+          persist-credentials: false
       - name: Unshallow clone for tags
         run: git fetch --prune --unshallow --tags
         shell: bash
@@ -326,6 +332,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: true
+          persist-credentials: false
       - name: Install pulumictl
         uses: jaxxstorm/action-install-gh-release@v1.10.0
         with:
@@ -342,6 +349,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
       - name: Unshallow clone for PR merge bases
         run: git fetch --prune --unshallow --tags
       - name: Clean up release labels
@@ -365,6 +374,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: true
+          persist-credentials: false
 #      - name: Checkout Scripts Repo
 #        uses: actions/checkout@v3
 #        with:
